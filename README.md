@@ -1,1 +1,2 @@
-# cocktail-front
+# README
+カクテルアプリのフロント
