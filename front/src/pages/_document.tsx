@@ -1,5 +1,8 @@
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 
+import { Header } from "@/components/_common/Header"
+import { Footer } from "@/components/_common/Footer"
+
 type Props = {}
 
 class Document extends NextDocument<Props> {
@@ -13,7 +16,9 @@ class Document extends NextDocument<Props> {
           <link rel="apple-touch-icon" href={'/favicon.png'} />
         </Head>
         <body>
+          <Header />
           <Main />
+          <Footer />
           <NextScript />
         </body>
       </Html>
