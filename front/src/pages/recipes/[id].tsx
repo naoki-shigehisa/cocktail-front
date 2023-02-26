@@ -1,22 +1,27 @@
 import type { NextPage, GetServerSideProps } from "next"
+import { UAParser } from "ua-parser-js"
 
 import { getRecipe } from "@/lib/cocktailServerClient"
+
 import { RecipePageProps } from "@/components/_pages/recipe/RecipePageProps"
-import { RecipePage } from "@/components/_pages/recipe/RecipePage"
+import { RecipePagePc } from "@/components/_pages/recipe/RecipePagePc"
+import { RecipePageSp } from "@/components/_pages/recipe/RecipePageSp"
 
 type Props = RecipePageProps & { statusCode: 200 }
-
-interface Hashtag {
-  id: number
-  name: string
-}
 
 export const getServerSideProps: GetServerSideProps<Props> = async (
   context,
 ) => {
   const { req, query, res } = context
-  const recipe = await getRecipe(Number(query.id))
 
+  const userAgent = req.headers["user-agent"]
+  var isMobile = false
+  if (userAgent) {
+    const uaParserInstance = new UAParser().setUA(userAgent)
+    isMobile = uaParserInstance.getDevice().type == 'mobile'
+  }
+
+  const recipe = await getRecipe(Number(query.id))
   if (recipe == undefined) {
     return {
       notFound: true,
@@ -37,13 +42,18 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
     materials: recipe.recipe_materials,
     steps: recipe.recipe_steps,
     tools: recipe.recipe_tools,
+    isMobile: isMobile,
   }
 
   return { props: { statusCode: 200, ...pageProps } }
 }
 
 const Page: NextPage<Props> = (props) => {
-  return <RecipePage {...props} />
+  if (props.isMobile) {
+    return <RecipePageSp {...props} />
+  } else {
+    return <RecipePagePc {...props} />
+  }
 }
 
 export default Page

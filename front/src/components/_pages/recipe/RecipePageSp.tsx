@@ -3,7 +3,7 @@ import React from "react"
 
 import { RecipePageProps } from "@/components/_pages/recipe/RecipePageProps"
 
-export const RecipePage: React.FC<RecipePageProps> = ({
+export const RecipePageSp: React.FC<RecipePageProps> = ({
   name,
   nameEn,
   description,
@@ -20,7 +20,7 @@ export const RecipePage: React.FC<RecipePageProps> = ({
 }) => {
   return (
     <div css={nameStyle}>
-      {name}
+      {nameEn}
     </div>
   )
 }

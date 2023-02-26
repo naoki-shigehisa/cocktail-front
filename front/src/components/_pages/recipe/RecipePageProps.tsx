@@ -59,4 +59,5 @@ export type RecipePageProps = {
   materials: Material[]
   steps: Step[]
   tools: Tool
+  isMobile: boolean
 }
