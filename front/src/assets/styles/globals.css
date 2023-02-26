@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial',
+  'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo',
+  '游ゴシック', 'Yu Gothic', 'ＭＳ Ｐゴシック', sans-serif;
+  color: #222;
+  background-color: #fafafb;
+}
