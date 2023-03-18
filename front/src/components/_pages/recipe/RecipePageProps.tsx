@@ -27,6 +27,9 @@ interface Material {
   thumbnailUrl: string
   amazonUrl: string
   isAlcohol: boolean
+  unit: string
+  amount: string
+  isOption: boolean
 }
 
 interface Step {

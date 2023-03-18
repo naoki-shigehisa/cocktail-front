@@ -3,6 +3,9 @@ import React from "react"
 
 import { RecipePageProps } from "@/components/_pages/recipe/RecipePageProps"
 
+import { TopProps } from "@/components/recipe/top/TopProps"
+import { TopPc } from "@/components/recipe/top/TopPc"
+
 export const RecipePagePc: React.FC<RecipePageProps> = ({
   name,
   nameEn,
@@ -18,13 +21,22 @@ export const RecipePagePc: React.FC<RecipePageProps> = ({
   steps,
   tools,
 }) => {
+  const topProps: TopProps = {
+    name: name,
+    nameEn: nameEn,
+    description: description,
+    thumbnailUrl: thumbnailUrl,
+    materials: materials,
+  }
+
   return (
-    <div css={nameStyle}>
-      {name}
+    <div css={RecipePageStyle}>
+      <TopPc {...topProps}/>
     </div>
   )
 }
 
-const nameStyle = css`
-  font-size: 40px;
+const RecipePageStyle = css`
+  max-width: 1100px;
+  margin: auto;
 `
