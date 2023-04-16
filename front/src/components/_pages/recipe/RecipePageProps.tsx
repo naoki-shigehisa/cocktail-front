@@ -34,6 +34,7 @@ interface Material {
 
 interface Step {
   id: number
+  order: number
   content: string
   thumbnailUrl: string
 }
@@ -61,6 +62,7 @@ export type RecipePageProps = {
   color: Color
   materials: Material[]
   steps: Step[]
-  tools: Tool
+  tools: Tool[]
+  glass: Tool
   isMobile: boolean
 }

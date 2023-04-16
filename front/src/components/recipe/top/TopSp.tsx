@@ -3,6 +3,9 @@ import React from "react"
 import Image from "next/image"
 
 import { TopProps } from "@/components/recipe/top/TopProps"
+import { SectionTitleProps } from "@/components/_common/section_title/SectionTitleProps"
+
+import { SectionTitleSp } from "@/components/_common/section_title/SectionTitleSp"
 
 export const TopSp: React.FC<TopProps> = ({
   name,
@@ -11,6 +14,10 @@ export const TopSp: React.FC<TopProps> = ({
   thumbnailUrl,
   materials,
 }) => {
+  const sectionTitleProps: SectionTitleProps = {
+    title: '材料',
+  }
+  
   return (
     <div>
       <div css={mainImageBoxStyle}>
@@ -32,9 +39,7 @@ export const TopSp: React.FC<TopProps> = ({
         <div css={descriptionStyle}>
           {description}
         </div>
-        <div css={materialTitleStyle}>
-          材料
-        </div>
+        <SectionTitleSp {...sectionTitleProps}/>
         {materials.map((material)=><div css={materialAreaStyle} key={material.id}>
           <div css={materialNameStyle}>
             {material.name}
@@ -77,32 +82,11 @@ const descriptionStyle = css `
   padding-bottom: 10px;
 `
 
-const materialTitleStyle = css `
-  font-size: 16px;
-  line-height: 34px;
-  font-weight: bold;
-  padding-left: 15px;
-  margin-bottom: 5px;
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 4px;
-    height: 34px;
-    border-radius: 2px;
-    background: #f5b2ac;
-    top: calc(50% - 17px);
-    left: 0;
-  }
-`
-
 const materialAreaStyle = css `
   display: flex;
   border-bottom: 2px solid #dedede;
   line-height: 1;
-  padding: 10px 0;
+  padding: 10px;
   margin-bottom: 10px;
 `
 

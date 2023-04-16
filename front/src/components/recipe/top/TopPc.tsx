@@ -50,7 +50,7 @@ export const TopPc: React.FC<TopProps> = ({
 }
 
 const mainStyle = css`
-  margin: 20px 0;
+  margin: 20px;
 `
 
 const nameEnStyle = css`
@@ -67,7 +67,6 @@ const nameStyle = css`
 `
 
 const infoAndImageAreaStyle = css`
-  padding: 0 10px;
   display: flex;
 `
 
@@ -82,7 +81,7 @@ const mainImageStyle = css`
 `
 
 const infoAreaStyle = css`
-  width: 700px;
+  width: 780px;
   padding-left: 20px;
 `
 

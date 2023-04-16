@@ -4,7 +4,10 @@ import React from "react"
 import { RecipePageProps } from "@/components/_pages/recipe/RecipePageProps"
 
 import { TopProps } from "@/components/recipe/top/TopProps"
+import { HowToMakeProps } from "@/components/recipe/how_to_make/HowToMakeProps"
+
 import { TopSp } from "@/components/recipe/top/TopSp"
+import { HowToMakeSp } from "@/components/recipe/how_to_make/HowToMakeSp"
 
 export const RecipePageSp: React.FC<RecipePageProps> = ({
   name,
@@ -19,6 +22,7 @@ export const RecipePageSp: React.FC<RecipePageProps> = ({
   color,
   materials,
   steps,
+  glass,
   tools,
 }) => {
   const topProps: TopProps = {
@@ -29,9 +33,17 @@ export const RecipePageSp: React.FC<RecipePageProps> = ({
     materials: materials,
   }
 
+  const howToMakeProps: HowToMakeProps = {
+    isIce: isIce,
+    technique: technique,
+    glass: glass,
+    steps: steps,
+  }
+
   return (
     <div css={nameStyle}>
       <TopSp {...topProps}/>
+      <HowToMakeSp {...howToMakeProps}/>
     </div>
   )
 }
