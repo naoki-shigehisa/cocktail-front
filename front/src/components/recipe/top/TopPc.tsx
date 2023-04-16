@@ -94,7 +94,7 @@ const materialAreaStyle = css `
   display: flex;
   border-bottom: 2px solid #dedede;
   line-height: 1;
-  padding: 10px 0;
+  padding: 10px;
 `
 
 const materialNameStyle = css `
