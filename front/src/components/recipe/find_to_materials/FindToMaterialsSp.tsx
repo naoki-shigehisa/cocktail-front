@@ -1,0 +1,84 @@
+import { css } from "@emotion/react"
+import React from "react"
+import Image from "next/image"
+
+import { FindToMaterialsProps } from "@/components/recipe/find_to_materials/FindToMaterialsProps"
+import { SectionTitleProps } from "@/components/_common/section_title/SectionTitleProps"
+
+import { SectionTitleSp } from "@/components/_common/section_title/SectionTitleSp"
+import { LinkButtonSp } from "@/components/_common/link_button/LinkButtonSp"
+
+export const FindToMaterialsSp: React.FC<FindToMaterialsProps> = ({
+  name,
+  materials,
+}) => {
+  const sectionTitleProps: SectionTitleProps = {
+    title: name + 'の材料を探す',
+  }
+
+  return (
+    <div css={mainStyle}>
+      <SectionTitleSp {...sectionTitleProps}/>
+      {materials.map((material)=><div css={materialAreaStyle} key={material.id}>
+        <div css={imageBoxStyle}>
+          <Image
+            src={material.thumbnailUrl}
+            alt={material.name}
+            fill
+            objectFit='contain'
+            objectPosition='center'
+          />
+        </div>
+        <div css={materialInfoAreaStyle}>
+          <div css={nameStyle}>
+            {material.name}
+          </div>
+          <div css={descriptionStyle}>
+            {material.description}
+          </div>
+          <div css={buttonAreaStyle}>
+            <LinkButtonSp
+              text="Amazonで見る"
+              url={material.amazonUrl}
+            />
+          </div>
+        </div>
+      </div>)}
+    </div>
+  )
+}
+
+const mainStyle = css`
+  margin: 20px;
+`
+
+const materialAreaStyle = css`
+  display: flex;
+  padding: 10px 0;
+`
+
+const imageBoxStyle = css`
+  position: relative;
+  min-width: 80px;
+  height: 100px;
+  margin: auto 0;
+`
+
+const materialInfoAreaStyle = css`
+  padding-left: 5px;
+`
+
+const nameStyle = css`
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1;
+`
+
+const descriptionStyle = css`
+  font-size: 14px;
+  color: #666666;
+`
+
+const buttonAreaStyle = css`
+  padding-top: 10px;
+`
