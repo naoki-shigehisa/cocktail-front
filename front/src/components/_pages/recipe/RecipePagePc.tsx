@@ -5,9 +5,11 @@ import { RecipePageProps } from "@/components/_pages/recipe/RecipePageProps"
 
 import { TopProps } from "@/components/recipe/top/TopProps"
 import { HowToMakeProps } from "@/components/recipe/how_to_make/HowToMakeProps"
+import { InfoProps } from "@/components/recipe/info/InfoProps"
 
 import { TopPc } from "@/components/recipe/top/TopPc"
 import { HowToMakePc } from "@/components/recipe/how_to_make/HowToMakePc"
+import { InfoPc } from "@/components/recipe/info/InfoPc"
 
 export const RecipePagePc: React.FC<RecipePageProps> = ({
   name,
@@ -40,10 +42,18 @@ export const RecipePagePc: React.FC<RecipePageProps> = ({
     steps: steps,
   }
 
+  const infoProps: InfoProps = {
+    alcohol: alcohol,
+    type: type,
+    taste: taste,
+    color: color,
+  }
+
   return (
     <div css={RecipePageStyle}>
       <TopPc {...topProps}/>
       <HowToMakePc {...howToMakeProps}/>
+      <InfoPc {...infoProps}/>
     </div>
   )
 }
