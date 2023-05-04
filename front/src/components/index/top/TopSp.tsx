@@ -44,6 +44,7 @@ const leftContentStyle = css`
   color: #ffffff;
   font-size: 20px;
   font-weight: bold;
+  white-space: nowrap;
 `
 
 const mockImageBoxStyle = css`
