@@ -8,3 +8,12 @@ export async function getRecipe(recipeId: Number) {
   const recipe = JSON.parse(JSON.stringify(unparsedRecipe)).recipe;
   return recipe
 }
+
+export async function getLatestRecipes() {
+  const unparsedRecipes = await 
+    fetch(`${hostName}/v1/recipes/latests.json`)
+    .then(data => data.json());
+  
+  const recipes = JSON.parse(JSON.stringify(unparsedRecipes)).recipes;
+  return recipes
+}
