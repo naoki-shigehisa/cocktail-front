@@ -3,17 +3,22 @@ import React from "react"
 
 import { IndexPageProps } from "@/components/_pages/index/IndexPageProps"
 
+import { TopSp } from "@/components/index/top/TopSp"
+
 export const IndexPageSp: React.FC<IndexPageProps> = ({
   latestRecipes,
 }) => {
   return (
-    <div css={IndexPageStyle}>
-      作成中
+    <div>
+      <TopSp />
+      <div css={indexPageStyle}>
+        コンテンツ
+      </div>
     </div>
   )
 }
 
-const IndexPageStyle = css`
-  max-width: 1100px;
-  margin: auto;
+const indexPageStyle = css`
+  width: calc(100% - 40px);
+  margin: 0 20px;
 `
