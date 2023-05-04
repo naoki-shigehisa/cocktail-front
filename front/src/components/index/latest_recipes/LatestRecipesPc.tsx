@@ -108,7 +108,7 @@ const descriptionStyle = css`
   padding-top: 14px;
   font-size: 14px;
   color: #666666;
-  line-height: 1.2;
+  line-height: 1.3;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
