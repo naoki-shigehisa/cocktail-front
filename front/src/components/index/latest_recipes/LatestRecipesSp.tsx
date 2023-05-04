@@ -1,5 +1,6 @@
 import { css } from "@emotion/react"
 import React from "react"
+import Link from 'next/link'
 import Image from "next/image"
 
 import { LatestRecipesProps } from "@/components/index/latest_recipes/LatestRecipesProps"
@@ -17,40 +18,47 @@ export const LatestRecipesSp: React.FC<LatestRecipesProps> = ({
   return (
     <div css={mainStyle}>
       <SectionTitleSp {...sectionTitleProps}/>
-      {latestRecipes.map((latestRecipe)=><div css={recipeCardStyle} key={latestRecipe.id}>
-        <div css={imageBoxStyle}>
-          <Image
-            css={imageStyle}
-            src={latestRecipe.thumbnailUrl}
-            alt={latestRecipe.name}
-            fill
-            objectFit='cover'
-            objectPosition='center'
-          />
+      {latestRecipes.map((latestRecipe)=><Link href={'/recipes/' + latestRecipe.id} css={linkStyle} key={latestRecipe.id}>
+        <div css={recipeCardStyle}>
+          <div css={imageBoxStyle}>
+            <Image
+              css={imageStyle}
+              src={latestRecipe.thumbnailUrl}
+              alt={latestRecipe.name}
+              fill
+              objectFit='cover'
+              objectPosition='center'
+            />
+          </div>
+          <div css={recipeInfoAreaStyle}>
+            <div css={nameEnStyle}>
+              {latestRecipe.nameEn}
+            </div>
+            <div css={nameStyle}>
+              {latestRecipe.name}
+            </div>
+            <div css={materialAreaStyle}>
+              {latestRecipe.materials.map((material)=><span css={materialStyle} key={material.id}>
+                {material.name}
+              </span>)}
+            </div>
+            <div css={descriptionStyle}>
+              {latestRecipe.description}
+            </div>
+          </div>
         </div>
-        <div css={recipeInfoAreaStyle}>
-          <div css={nameEnStyle}>
-            {latestRecipe.nameEn}
-          </div>
-          <div css={nameStyle}>
-            {latestRecipe.name}
-          </div>
-          <div css={materialAreaStyle}>
-            {latestRecipe.materials.map((material)=><span css={materialStyle} key={material.id}>
-              {material.name}
-            </span>)}
-          </div>
-          <div css={descriptionStyle}>
-            {latestRecipe.description}
-          </div>
-        </div>
-      </div>)}
+      </Link>)}
     </div>
   )
 }
 
 const mainStyle = css`
   margin-top: 20px;
+`
+
+const linkStyle = css`
+  color: #222;
+  text-decoration: none;
 `
 
 const recipeCardStyle = css`

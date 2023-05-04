@@ -19,7 +19,11 @@ export const IndexPagePc: React.FC<IndexPageProps> = ({
     <div>
       <TopPc />
       <div css={indexPageStyle}>
-        <LatestRecipesPc {...latestRecipesProps}/>
+        <div css={leftContentStyle}>
+          <LatestRecipesPc {...latestRecipesProps}/>
+        </div>
+        <div css={rightContentStyle}>
+        </div>
       </div>
     </div>
   )
@@ -28,4 +32,14 @@ export const IndexPagePc: React.FC<IndexPageProps> = ({
 const indexPageStyle = css`
   width: 1100px;
   margin: auto;
+  display: flex;
+`
+
+const leftContentStyle = css`
+  width: 700px;
+`
+
+const rightContentStyle = css`
+  width: 350px;
+  padding-left: 50px;
 `
