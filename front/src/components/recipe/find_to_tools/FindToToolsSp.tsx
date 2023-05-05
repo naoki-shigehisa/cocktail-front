@@ -13,7 +13,7 @@ export const FindToToolsSp: React.FC<FindToToolsProps> = ({
   tools,
 }) => {
   const sectionTitleProps: SectionTitleProps = {
-    title: name + 'の材料を探す',
+    title: name + 'に使う道具を探す',
   }
 
   return (
