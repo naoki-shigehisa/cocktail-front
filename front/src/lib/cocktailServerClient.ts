@@ -17,3 +17,12 @@ export async function getLatestRecipes() {
   const recipes = JSON.parse(JSON.stringify(unparsedRecipes)).recipes;
   return recipes
 }
+
+export async function getRecipesCount() {
+  const unparsedRecipesCount = await 
+    fetch(`${hostName}/v1/recipes/count.json`)
+    .then(data => data.json());
+  
+  const recipes_count = JSON.parse(JSON.stringify(unparsedRecipesCount)).recipes_count;
+  return recipes_count
+}

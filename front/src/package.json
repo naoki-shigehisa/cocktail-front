@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^11.10.0",
     "@types/ua-parser-js": "^0.7.36",
+    "next-sitemap": "^4.0.9",
     "ua-parser-js": "^1.0.33"
   }
 }
