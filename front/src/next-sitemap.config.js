@@ -6,7 +6,9 @@ module.exports = {
     for (var i = 1; i <= recipesCount; i++) {
       fields.push({
         loc: '/recipes/' + i,
+        changefreq: 'daily',
         priority: 0.8,
+        lastmod: new Date().toISOString(),
       })
     }
   
