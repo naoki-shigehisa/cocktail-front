@@ -2,7 +2,7 @@ module.exports = {
   siteUrl: 'https://www.cockhome.com',
   additionalPaths: async () => {
     const fields = [];
-    const recipesCount = 5;
+    const recipesCount = 7;
     for (var i = 1; i <= recipesCount; i++) {
       fields.push({
         loc: '/recipes/' + i,
