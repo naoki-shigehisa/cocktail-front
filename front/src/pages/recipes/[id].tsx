@@ -7,7 +7,10 @@ import { RecipePageProps } from "@/components/_pages/recipe/RecipePageProps"
 import { RecipePagePc } from "@/components/_pages/recipe/RecipePagePc"
 import { RecipePageSp } from "@/components/_pages/recipe/RecipePageSp"
 
-type Props = RecipePageProps & { statusCode: 200 }
+import { MetaDataProps } from "@/components/_common/meta_data/MetaDataProps"
+import { MetaData } from "@/components/_common/meta_data/MetaData"
+
+type Props = RecipePageProps & MetaDataProps & { statusCode: 200 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (
   context,
@@ -97,14 +100,31 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
     isMobile: isMobile,
   }
 
-  return { props: { statusCode: 200, ...pageProps } }
+  const metaDataProps: MetaDataProps = {
+    metaTitle: recipe.name + 'の作り方 | cockhome(カクホーム)',
+    metaDescription: recipe.name + 'の作り方や材料、必要な道具がわかる！お家でカクテル作るならカクホーム！',
+    metaKeyword: recipe.name + ',カクテル,お家,自宅',
+    metaImageUrl: recipe.thumbnail_url,
+  }
+
+  return { props: { statusCode: 200, ...pageProps, ...metaDataProps } }
 }
 
 const Page: NextPage<Props> = (props) => {
   if (props.isMobile) {
-    return <RecipePageSp {...props} />
+    return (
+      <div>
+        <MetaData {...props} />
+        <RecipePageSp {...props} />
+      </div>
+    )
   } else {
-    return <RecipePagePc {...props} />
+    return (
+      <div>
+        <MetaData {...props} />
+        <RecipePagePc {...props} />
+      </div>
+    )
   }
 }
 

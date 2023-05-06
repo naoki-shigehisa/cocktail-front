@@ -7,7 +7,12 @@ import { IndexPageProps } from "@/components/_pages/index/IndexPageProps"
 import { IndexPagePc } from "@/components/_pages/index/IndexPagePc"
 import { IndexPageSp } from "@/components/_pages/index/IndexPageSp"
 
-type Props = IndexPageProps & { statusCode: 200 }
+import { MetaDataProps } from "@/components/_common/meta_data/MetaDataProps"
+import { MetaData } from "@/components/_common/meta_data/MetaData"
+
+import logo from "@/assets/images/_common/header_logo.png"
+
+type Props = IndexPageProps & MetaDataProps & { statusCode: 200 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (
   context,
@@ -47,14 +52,31 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
     isMobile: isMobile,
   }
 
-  return { props: { statusCode: 200, ...pageProps } }
+  const metaDataProps: MetaDataProps = {
+    metaTitle: 'cockhome(カクホーム)',
+    metaDescription: '色々なカクテルの作り方や材料、必要な道具がわかる！お家でカクテル作るならカクホーム！',
+    metaKeyword: 'カクテル,お家,自宅',
+    metaImageUrl: logo.src,
+  }
+
+  return { props: { statusCode: 200, ...pageProps, ...metaDataProps } }
 }
 
 const Page: NextPage<Props> = (props) => {
   if (props.isMobile) {
-    return <IndexPageSp {...props} />
+    return (
+      <div>
+        <MetaData {...props} />
+        <IndexPageSp {...props} />
+      </div>
+    )
   } else {
-    return <IndexPagePc {...props} />
+    return (
+      <div>
+        <MetaData {...props} />
+        <IndexPagePc {...props} />
+      </div>
+    )
   }
 }
 
