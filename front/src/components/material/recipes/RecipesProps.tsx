@@ -12,12 +12,7 @@ interface Recipe {
   materials: Material[]
 }
 
-export type MaterialPageProps = {
-  name: string
-  nameEn: string
-  description: string
-  thumbnailUrl: string
-  amazonUrl: string
-  isAlcohol: boolean
+export type RecipesProps = {
+  material_name: string
   recipes: Recipe[]
 }
