@@ -26,3 +26,12 @@ export async function getRecipesCount() {
   const recipes_count = JSON.parse(JSON.stringify(unparsedRecipesCount)).recipes_count;
   return recipes_count
 }
+
+export async function getMaterial(materialId: Number) {
+  const unparsedMaterial = await 
+    fetch(`${hostName}/v1/materials/${materialId}.json`)
+    .then(data => data.json());
+  
+  const material = JSON.parse(JSON.stringify(unparsedMaterial)).material;
+  return material
+}
