@@ -66,7 +66,6 @@ const nameStyle = css`
 `
 
 const descriptionStyle = css`
-  font-size: 20px;
-  color: #666666;
+  font-size: 16px;
   padding: 10px 0;
 `
