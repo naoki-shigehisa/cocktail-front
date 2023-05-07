@@ -2,6 +2,9 @@ import { css } from "@emotion/react"
 import React from "react"
 
 import { MaterialPageProps } from "@/components/_pages/material/MaterialPageProps"
+import { TopProps } from "@/components/material/top/TopProps"
+
+import { TopSp } from "@/components/material/top/TopSp"
 
 export const MaterialPageSp: React.FC<MaterialPageProps> = ({
   name,
@@ -13,14 +16,20 @@ export const MaterialPageSp: React.FC<MaterialPageProps> = ({
   recipes,
   isMobile,
 }) => {
+  const topProps: TopProps = {
+    name: name,
+    nameEn: nameEn,
+    description: description,
+    thumbnailUrl: thumbnailUrl,
+  }
+
   return (
     <div css={MaterialPageStyle}>
-      コンテンツ {name}
+      <TopSp {...topProps}/>
     </div>
   )
 }
 
 const MaterialPageStyle = css`
-  max-width: 1100px;
-  margin: auto;
+  margin: 0 20px;
 `
