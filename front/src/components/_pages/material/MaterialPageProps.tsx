@@ -20,4 +20,5 @@ export type MaterialPageProps = {
   amazonUrl: string
   isAlcohol: boolean
   recipes: Recipe[]
+  isMobile: boolean
 }
