@@ -35,6 +35,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
     name: recipe.name,
     nameEn: recipe.name_en,
     description: recipe.description,
+    trivia: recipe.trivia,
     thumbnailUrl: recipe.thumbnail_url,
     isIce: recipe.is_ice,
     alcohol: recipe.alcohol,

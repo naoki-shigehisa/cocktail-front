@@ -53,6 +53,7 @@ export type RecipePageProps = {
   name: string
   nameEn: string
   description: string
+  trivia: string
   thumbnailUrl: string
   isIce: boolean
   alcohol: number

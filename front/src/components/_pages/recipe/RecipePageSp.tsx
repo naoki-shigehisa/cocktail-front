@@ -6,12 +6,14 @@ import { RecipePageProps } from "@/components/_pages/recipe/RecipePageProps"
 import { TopProps } from "@/components/recipe/top/TopProps"
 import { HowToMakeProps } from "@/components/recipe/how_to_make/HowToMakeProps"
 import { InfoProps } from "@/components/recipe/info/InfoProps"
+import { TriviaProps } from "@/components/recipe/trivia/TriviaProps"
 import { FindToMaterialsProps } from "@/components/recipe/find_to_materials/FindToMaterialsProps"
 import { FindToToolsProps } from "@/components/recipe/find_to_tools/FindToToolsProps"
 
 import { TopSp } from "@/components/recipe/top/TopSp"
 import { HowToMakeSp } from "@/components/recipe/how_to_make/HowToMakeSp"
 import { InfoSp } from "@/components/recipe/info/InfoSp"
+import { TriviaSp } from "@/components/recipe/trivia/TriviaSp"
 import { FindToMaterialsSp } from "@/components/recipe/find_to_materials/FindToMaterialsSp"
 import { FindToToolsSp } from "@/components/recipe/find_to_tools/FindToToolsSp"
 
@@ -19,6 +21,7 @@ export const RecipePageSp: React.FC<RecipePageProps> = ({
   name,
   nameEn,
   description,
+  trivia,
   thumbnailUrl,
   isIce,
   alcohol,
@@ -53,6 +56,11 @@ export const RecipePageSp: React.FC<RecipePageProps> = ({
     color: color,
   }
 
+  const triviaProps: TriviaProps = {
+    name: name,
+    trivia: trivia,
+  }
+
   const findToMaterialsProps: FindToMaterialsProps = {
     name: name,
     materials: materials,
@@ -68,6 +76,7 @@ export const RecipePageSp: React.FC<RecipePageProps> = ({
       <TopSp {...topProps}/>
       <HowToMakeSp {...howToMakeProps}/>
       <InfoSp {...infoProps}/>
+      <TriviaSp {...triviaProps}/>
       <FindToMaterialsSp {...findToMaterialsProps}/>
       <FindToToolsSp {...findToToolsProps}/>
     </div>
