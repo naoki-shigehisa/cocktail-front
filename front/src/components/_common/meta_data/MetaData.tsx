@@ -24,8 +24,8 @@ export const MetaData: React.FC<MetaDataProps> = ({
       <meta name="twitter:title" content={metaTitle} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={metaImageUrl} />
-      <link rel="shortcut icon" href={'https://www.cockhome.com/favicon.png'} />
-      <link rel="apple-touch-icon" href={'https://www.cockhome.com/favicon.png'} />
+      <link rel="shortcut icon" href={'https://www.cockhome.com/favicon.ico'} />
+      <link rel="apple-touch-icon" href={'https://www.cockhome.com/favicon.ico'} />
     </Head>
   )
 }

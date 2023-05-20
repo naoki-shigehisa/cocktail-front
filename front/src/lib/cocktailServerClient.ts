@@ -35,3 +35,12 @@ export async function getMaterial(materialId: Number) {
   const material = JSON.parse(JSON.stringify(unparsedMaterial)).material;
   return material
 }
+
+export async function getRandomMaterials() {
+  const unparsedMaterials = await 
+    fetch(`${hostName}/v1/materials/random.json`)
+    .then(data => data.json());
+  
+  const materials = JSON.parse(JSON.stringify(unparsedMaterials)).materials;
+  return materials
+}

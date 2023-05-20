@@ -13,7 +13,7 @@ export const Header: React.FC = () => {
           <Image
             src={logo.src}
             alt="cockhome"
-            height={21}
+            height={39}
             width={144}
           />
         </Link>

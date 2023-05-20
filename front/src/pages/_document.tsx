@@ -12,8 +12,8 @@ class Document extends NextDocument<Props> {
         <Head>
           <meta charSet="utf-8" />
           <meta name="format-detection" content="telephone=no" />
-          <link rel="shortcut icon" href={'/favicon.png'} />
-          <link rel="apple-touch-icon" href={'/favicon.png'} />
+          <link rel="shortcut icon" href={'/favicon.ico'} />
+          <link rel="apple-touch-icon" href={'/favicon.ico'} />
         </Head>
         <body>
           <Header />
