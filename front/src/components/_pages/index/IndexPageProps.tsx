@@ -1,6 +1,8 @@
 interface Material {
   id: number
   name: string
+  nameEn: string
+  thumbnailUrl: string
 }
 
 interface Recipe {
@@ -14,5 +16,6 @@ interface Recipe {
 
 export type IndexPageProps = {
   latestRecipes: Recipe[]
+  randomMaterials: Material[]
   isMobile: boolean
 }

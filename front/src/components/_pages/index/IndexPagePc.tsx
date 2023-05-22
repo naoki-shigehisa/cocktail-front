@@ -4,15 +4,21 @@ import React from "react"
 import { IndexPageProps } from "@/components/_pages/index/IndexPageProps"
 
 import { LatestRecipesProps } from "@/components/index/latest_recipes/LatestRecipesProps"
+import { RandomMaterialsProps } from "@/components/index/random_materials/RandomMaterialsProps"
 
 import { TopPc } from "@/components/index/top/TopPc"
 import { LatestRecipesPc } from "@/components/index/latest_recipes/LatestRecipesPc"
+import { RandomMaterialsPc } from "@/components/index/random_materials/RandomMaterialsPc"
 
 export const IndexPagePc: React.FC<IndexPageProps> = ({
   latestRecipes,
+  randomMaterials,
 }) => {
   const latestRecipesProps: LatestRecipesProps = {
     latestRecipes: latestRecipes,
+  }
+  const randomMaterialsProps: RandomMaterialsProps = {
+    materials: randomMaterials,
   }
 
   return (
@@ -23,6 +29,7 @@ export const IndexPagePc: React.FC<IndexPageProps> = ({
           <LatestRecipesPc {...latestRecipesProps}/>
         </div>
         <div css={rightContentStyle}>
+          <RandomMaterialsPc {...randomMaterialsProps}/>
         </div>
       </div>
     </div>

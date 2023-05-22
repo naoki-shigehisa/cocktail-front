@@ -1,7 +1,7 @@
 import type { NextPage, GetServerSideProps } from "next"
 import { UAParser } from "ua-parser-js"
 
-import { getLatestRecipes } from "@/lib/cocktailServerClient"
+import { getLatestRecipes, getRandomMaterials } from "@/lib/cocktailServerClient"
 
 import { IndexPageProps } from "@/components/_pages/index/IndexPageProps"
 import { IndexPagePc } from "@/components/_pages/index/IndexPagePc"
@@ -33,6 +33,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
     }
   }
 
+  const materials = await getRandomMaterials() || []
+
   const pageProps: IndexPageProps = {
     latestRecipes: recipes.map((recipe: any) => {
       return {
@@ -47,6 +49,14 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
             name: recipe_material.name,
           }
         }),
+      }
+    }),
+    randomMaterials: materials.map((material: any) => {
+      return {
+        id: material.id,
+        name: material.name,
+        nameEn: material.name_en,
+        thumbnailUrl: material.thumbnail_url,
       }
     }),
     isMobile: isMobile,
