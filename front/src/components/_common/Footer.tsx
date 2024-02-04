@@ -4,7 +4,7 @@ import React from "react"
 export const Footer: React.FC = () => {
   return (
     <div css={footerStyle}>
-      @2023 naoki-shigehisa
+      @2024 naoki-shigehisa
     </div>
   )
 }
